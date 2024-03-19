@@ -48,6 +48,7 @@ typedef struct s_data
     char    *left_sprites[4];
     int     move_c;
     int     frame_counter;
+    int     current_frame[2];
     int     left_right;
 
 }   t_data;
@@ -69,5 +70,7 @@ void    draw_game(t_data *data);
 void	load_sprites(t_data *data);
 void    load_pfwc(t_data *data);
 int     all_collectible(t_data *data);
-int     event(int keycode, t_data *data)
+int     first_key(int keycode, t_data *data);
+void    draw_elem(t_data *data, int i, int j);
+void    draw_sprite(t_data *img_data);
 #endif

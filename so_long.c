@@ -25,7 +25,7 @@ void    game_began(t_data *data)
     load_sprites(data);
     draw_game(data);
     mlx_loop(data->mlx);
-    mlx_hook(data->win, 2, 0, event, (void *)data);
+    mlx_hook(data->win, 2, 0, first_key, (void *)data);
 }
 int main(int ac, char **av)
 {

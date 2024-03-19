@@ -12,8 +12,19 @@
 
 #include "so_long.h"
 
+void    draw_sprite(t_data *img_data)
+{
+    if (img_data->left_right == 0)
+        mlx_put_image_to_window(img_data->mlx, img_data->win,
+                img_data->right_sprites[img_data->current_frame[0]],
+                img_data->player_position[1], img_data->player_position[0]);
+    else if (img_data->left_right == 1)
+        mlx_put_image_to_window(img_data->mlx, img_data->win,
+                img_data->left_sprites[img_data->current_frame[1]],
+                img_data->player_position[1], img_data->player_position[0]);
+}
 
-void   draw(t_data *data, int i, int j)
+void   draw_elem(t_data *data, int i, int j)
 {
     mlx_put_image_to_window(data->mlx, data->win, data->floor, j * 48, i * 48);
     if ( data->map[i][j] == '1')

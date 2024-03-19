@@ -43,3 +43,6 @@ int is_wall(t_data *img, int x1, int y1)
 }
 
 int is_door(t_data *data)
+{
+    
+}
