@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:04:23 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/24 12:08:33 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:11:08 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,20 @@ void    animate_move(t_data *img_data, int dicision, int x1, int y1)
         img_data->current_frame[img_data->left_right] = i;
         draw_game(img_data);
         draw_sprite(img_data);
+        mlx_string_put(img_data->mlx, img_data->win, img_data->w_h[0] * 0.01 * 48 ,
+                    img_data->w_h[1] * 0.005 * 48 , 0xff, ft_itoa(img_data->move_c));
         if (dicision == 0)
             y1 += 12;
-        if (dicision == 1)
+        else if (dicision == 1)
             y1 -= 12;
-        if (dicision == 2)
+        else if (dicision == 2)
             x1 -= 12;
-        if (dicision == 3)
+        else if (dicision == 3)
             x1 += 12;
         img_data->player_position[0] = x1;
         img_data->player_position[1] = y1;
         mlx_do_sync(img_data->mlx);
+        usleep(100000);
         i++;
     }
 }

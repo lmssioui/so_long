@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:24:32 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/24 11:31:44 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:24:20 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,15 @@ int all_collected(t_data *img_data)
 
 int is_door(t_data *data, int x, int y)
 {
-    int x1;
-    int y1;
-    
-    x1 = x / 48;
-    y1 = y / 48;
-    if (x1 >= 0 && x1 < data->w_h[1] && y1 >= 0 && y < data->w_h[0]
-            && data->map[x1][y1] == 'E')
+    x = x / 48;
+    y = y / 48;
+    if (x >= 0 && x < data->w_h[1] && y >= 0 && y < data->w_h[0]
+            && data->map[x][y] == 'E')
     {
         if (all_collected(data))
+        {
             return (1);
+        }
     }
     return (0);
 }

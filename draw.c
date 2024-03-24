@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:14:07 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/24 11:09:08 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 14:52:22 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void    draw_sprite(t_data *img_data)
                 img_data->left_sprites[img_data->current_frame[1]],
                 img_data->player_position[1], img_data->player_position[0]);
 }
-void    draw_player(t_data *data)
-{
-   int  i;
-   int  j;
+// void    draw_player(t_data *data)
+// {
+//    int  i;
+//    int  j;
 
-   i = data->player_position[1];
-   j = data->player_position[0];
-   mlx_put_image_to_window(data->mlx, data->win, 
-            data->right_sprites[data->current_frame[data->left_right]], i, j);
-}
+//    i = data->player_position[1];
+//    j = data->player_position[0];
+//    mlx_put_image_to_window(data->mlx, data->win, 
+//             data->right_sprites[data->current_frame[data->left_right]], i, j);
+// }
 void   draw_elem(t_data *data, int i, int j)
 {
     mlx_put_image_to_window(data->mlx, data->win, data->floor, j * 48, i * 48);
@@ -44,7 +44,7 @@ void   draw_elem(t_data *data, int i, int j)
     {
         mlx_put_image_to_window(data->mlx, data->win, data->door, j * 48, i * 48);
         if (all_collectible(data))
-            mlx_put_image_to_window(data->mlx, data->win, data->door_open, j * 48, i * 48);
+                mlx_put_image_to_window(data->mlx, data->win, data->door_open, j * 48, i * 48);
     }
 }
 
