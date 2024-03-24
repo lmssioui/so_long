@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:27:13 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/17 17:24:37 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 11:03:20 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-# include "./minilibx-linux/mlx.h"
+# include "mlx.h"
 # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
@@ -40,7 +40,8 @@ typedef struct s_data
     void    *exit;
     void    *players;
     void    *collectible;
-    char    *door[2];
+    char    *door;
+    char    *door_open;
     int     img_width;
     int     img_height;
     int     test;
@@ -70,7 +71,16 @@ void    draw_game(t_data *data);
 void	load_sprites(t_data *data);
 void    load_pfwc(t_data *data);
 int     all_collectible(t_data *data);
-int     first_key(int keycode, t_data *data);
 void    draw_elem(t_data *data, int i, int j);
 void    draw_sprite(t_data *img_data);
+int     first_key(int keycode, t_data *img_data);
+int     is_collectible(t_data *img_data, int x1, int y1);
+void    key_next(int keycode, int x1, int y1, t_data *img_data);
+void    draw_sprite(t_data *img_data);
+int     is_wall(t_data *img, int x1, int y1);
+void    exit_game(t_data *img_data);
+int     is_door(t_data *data, int x, int y);
+
+
+
 #endif

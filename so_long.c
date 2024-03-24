@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:42:25 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/17 15:05:52 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 09:15:17 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ void    alocate_map(t_data *data)
 
 void    game_began(t_data *data)
 {
+    data->move_c = 0;
     load_pfwc(data);
     load_sprites(data);
     draw_game(data);
-    mlx_loop(data->mlx);
     mlx_hook(data->win, 2, 0, first_key, (void *)data);
+    mlx_loop(data->mlx);
 }
+
 int main(int ac, char **av)
 {
     t_data data;

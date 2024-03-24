@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:13:51 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/17 10:39:55 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 11:34:58 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void load_pfwc(t_data *data)
     data->collectible = mlx_xpm_file_to_image(data->mlx,
             "./image/f_w_c/clc.xpm", &data->img_width, &data->img_height);
     check_loading_problems(data->collectible);
-    data->door[0] = mlx_xpm_file_to_image(data->mlx,
+    data->door = mlx_xpm_file_to_image(data->mlx,
             "./image/door/door.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->door[0]);
-    data->door[1] = mlx_xpm_file_to_image(data->mlx,
+    check_loading_problems(data->door);
+    data->door_open= mlx_xpm_file_to_image(data->mlx,
             "./image/door/door_open.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->door[1]);
+    check_loading_problems(data->door_open);
 }

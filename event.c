@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:04:23 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/17 17:34:42 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/24 12:08:33 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void    animate_move(t_data *img_data, int dicision, int x1, int y1)
     while (i < 4)
     {
         mlx_clear_window(img_data->mlx, img_data->win);
-        img_data->current_frame[img_data->current_frame] = i;
+        img_data->current_frame[img_data->left_right] = i;
         draw_game(img_data);
-        draw_sprites(img_data);
+        draw_sprite(img_data);
         if (dicision == 0)
-            x1 += 12;
-        if (dicision == 1);
             y1 += 12;
-        if (dicision == 2);
+        if (dicision == 1)
+            y1 -= 12;
+        if (dicision == 2)
             x1 -= 12;
         if (dicision == 3)
             x1 += 12;
@@ -42,11 +42,11 @@ void    animate(int keycode, int x1, int y1, t_data *img_data)
 {
     if (keycode == 2)
         animate_move(img_data, 0, x1, y1);
-    if (keycode == 0)
+    else if (keycode == 0)
         animate_move(img_data, 1, x1, y1);
-    if (keycode == 13)
+    else if (keycode == 13)
         animate_move(img_data, 2, x1, y1);
-    if (keycode == 1)
+    else if (keycode == 1)
         animate_move(img_data, 3, x1, y1);
     if (is_door(img_data, img_data->player_position[0], img_data->player_position[1]))
     {
@@ -67,14 +67,14 @@ void    key_next(int keycode, int x1, int y1, t_data *img_data)
             img_data->left_right = 0;
             y1 -= 48;
         }
-        if (keycode == 0)
+        else if (keycode == 0)
         {
             img_data->left_right = 1;
             y1 += 48;
         }
-        if (keycode == 13)
+        else if (keycode == 13)
             x1 += 48;
-        if (keycode == 1)
+        else if (keycode == 1)
             x1 -= 48;
         animate(keycode, x1, y1, img_data);
         img_data->move_c++;
@@ -86,7 +86,7 @@ int first_key(int keycode, t_data *img_data)
 {
     int x1;
     int y1;
-
+    
     if (keycode == 13 || keycode == 1 || keycode == 2 || keycode == 0)
     {
         img_data->frame_counter = 1;
@@ -94,17 +94,17 @@ int first_key(int keycode, t_data *img_data)
         y1 = img_data->player_position[1];
         if (keycode == 2)
             y1 += 48;
-        if (keycode == 0)
+        else if (keycode == 0)
             y1 -= 48;
-        if (keycode == 13)
+        else if (keycode == 13)
             x1 -= 48;
-        if (keycode == 1)
+        else if (keycode == 1)
             x1 += 48;
         if (is_collectible(img_data, x1, y1))
             img_data->map[x1 / 48][y1 /48] = '0';
         key_next(keycode, x1, y1, img_data);
     }
-    if (keycode == 53)
+    else if (keycode == 53)
         exit_game(img_data);
     return (1);
 }
