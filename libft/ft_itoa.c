@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouyata <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:22:22 by abouyata          #+#    #+#             */
-/*   Updated: 2023/11/17 01:52:23 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:47:24 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 static int	count(long long nb)
 {

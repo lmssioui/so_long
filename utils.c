@@ -62,7 +62,7 @@ void    data_save(t_data *data, char *str, int fd)
         {
             if (!check_char(str[j]))
             {
-                ft_printf("invalid map");
+                ft_printf("                                                                                                                                                                                                                                          ");
                 exit (1);
             }
             data->map[i][j] = str[j];
