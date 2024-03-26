@@ -6,11 +6,20 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:04:23 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/24 17:11:08 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/26 06:51:45 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void    number_move(t_data *img_data)
+{
+   int  c;
+
+   c = img_data->move_c + 1;
+    mlx_string_put(img_data->mlx, img_data->win, img_data->w_h[0] * 0.01 * 48 ,
+                    img_data->w_h[1] * 0.005 * 48 , 0xff, ft_itoa(c));
+}
 
 void    animate_move(t_data *img_data, int dicision, int x1, int y1)
 {
@@ -23,8 +32,7 @@ void    animate_move(t_data *img_data, int dicision, int x1, int y1)
         img_data->current_frame[img_data->left_right] = i;
         draw_game(img_data);
         draw_sprite(img_data);
-        mlx_string_put(img_data->mlx, img_data->win, img_data->w_h[0] * 0.01 * 48 ,
-                    img_data->w_h[1] * 0.005 * 48 , 0xff, ft_itoa(img_data->move_c));
+        number_move(img_data);
         if (dicision == 0)
             y1 += 12;
         else if (dicision == 1)

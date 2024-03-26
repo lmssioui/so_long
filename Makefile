@@ -15,10 +15,10 @@ OBJ		= ${SOURCE:.c=.o}
 all:$(NAME)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(INCLUDE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
+	@$(CC) $(OBJ) $(INCLUDE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 clean: 
 	rm -rf ${OBJ} ${BOBJ}

@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:07:02 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/24 20:05:48 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/26 06:39:20 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void is_rectangle(char *av)
     char *str;
 
     fd = open(av, O_RDONLY);
-    if (fd == -1) {
-        write(2,"Error opening file",11);
+    if (fd == -1) 
+    {
+        write(2 ,"Error opening file" ,19);
         exit(1);
     }
     str = get_next_line(fd);
