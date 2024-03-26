@@ -18,15 +18,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	    ft_printf(const char *format, ...);
-int	    ft_putchar(int c);
-int	    ft_putstr(const char *s);
-int	    ft_putnbr(int nb);
+int		ft_printf(const char *format, ...);
+int		ft_putchar(int c);
+int		ft_putstr(const char *s);
+int		ft_putnbr(int nb);
 size_t	ft_strlen(const char *s);
-int	    ft_print_hexa(unsigned int x);
-int	    ft_print_hexa1(unsigned int x);
-int	    ft_print_pointer(unsigned long n);
-int	    ft_print_unsg(unsigned int u);
+int		ft_print_hexa(unsigned int x);
+int		ft_print_hexa1(unsigned int x);
+int		ft_print_pointer(unsigned long n);
+int		ft_print_unsg(unsigned int u);
 char	*ft_strchr(const char *s, int c);
 
 #endif

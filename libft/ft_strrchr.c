@@ -6,11 +6,11 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 08:11:19 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/25 16:46:48 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/26 07:45:16 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stddef.h>
+#include <stddef.h>
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:13:51 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/24 11:34:58 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/26 07:34:22 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	check_loading_problems(void *img)
 		exit(1);
 	}
 }
+
 void	load_sprites(t_data *data)
 {
 	data->right_sprites[0] = mlx_xpm_file_to_image(data->mlx,
@@ -48,24 +49,24 @@ void	load_sprites(t_data *data)
 	check_loading_problems(data->left_sprites[3]);
 }
 
-void load_pfwc(t_data *data)
+void	load_pfwc(t_data *data)
 {
-    data->players = mlx_xpm_file_to_image(data->mlx,
+	data->players = mlx_xpm_file_to_image(data->mlx,
 			"./image/player/player0.xpm", &data->img_width, &data->img_height);
 	check_loading_problems(data->players);
-    data->floor = mlx_xpm_file_to_image(data->mlx,
-            "./image/f_w_c/floor.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->floor);
-    data->walls = mlx_xpm_file_to_image(data->mlx,
-            "./image/f_w_c/wall.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->walls);
-    data->collectible = mlx_xpm_file_to_image(data->mlx,
-            "./image/f_w_c/clc.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->collectible);
-    data->door = mlx_xpm_file_to_image(data->mlx,
-            "./image/door/door.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->door);
-    data->door_open= mlx_xpm_file_to_image(data->mlx,
-            "./image/door/door_open.xpm", &data->img_width, &data->img_height);
-    check_loading_problems(data->door_open);
+	data->floor = mlx_xpm_file_to_image(data->mlx, "./image/f_w_c/floor.xpm",
+			&data->img_width, &data->img_height);
+	check_loading_problems(data->floor);
+	data->walls = mlx_xpm_file_to_image(data->mlx, "./image/f_w_c/wall.xpm",
+			&data->img_width, &data->img_height);
+	check_loading_problems(data->walls);
+	data->collectible = mlx_xpm_file_to_image(data->mlx,
+			"./image/f_w_c/clc.xpm", &data->img_width, &data->img_height);
+	check_loading_problems(data->collectible);
+	data->door = mlx_xpm_file_to_image(data->mlx, "./image/door/door.xpm",
+			&data->img_width, &data->img_height);
+	check_loading_problems(data->door);
+	data->door_open = mlx_xpm_file_to_image(data->mlx,
+			"./image/door/door_open.xpm", &data->img_width, &data->img_height);
+	check_loading_problems(data->door_open);
 }
