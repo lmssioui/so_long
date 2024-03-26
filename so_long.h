@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:27:13 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 06:09:55 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/26 07:23:42 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,5 @@ void    draw_sprite(t_data *img_data);
 int     is_wall(t_data *img, int x1, int y1);
 void    exit_game(t_data *img_data);
 int     is_door(t_data *data, int x, int y);
-size_t  ft_strlen1(char *str);
 
 #endif
