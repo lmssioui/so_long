@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 07:42:03 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 07:44:00 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/31 07:35:53 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,15 @@ void	validate_path(t_data *data)
 		free_map(data);
 		exit(1);
 	}
+}
+int	ft_strlen1(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0' && s[i] != '\n')
+	{
+		i++;
+	}
+	return (i);
 }

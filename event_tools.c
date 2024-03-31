@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:24:32 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 07:33:43 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:03:35 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	exit_game(t_data *img_data)
 	free_map(img_data);
 	mlx_clear_window(img_data->mlx, img_data->win);
 	mlx_destroy_window(img_data->mlx, img_data->win);
+	system("leak ./so_long");
 	exit(0);
 }
 

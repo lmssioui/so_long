@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:07:02 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 07:43:14 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/03/31 07:38:47 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	is_rectangle(char *av)
 {
 	int		fd;
-	char	*first_line;
+	int		first_line;
 	char	*str;
 
 	fd = open(av, O_RDONLY);
@@ -25,13 +25,13 @@ void	is_rectangle(char *av)
 		exit(1);
 	}
 	str = get_next_line(fd);
-	first_line = str;
+	first_line = ft_strlen1(str);
 	while (str)
 	{
-		if (ft_strncmp(str, first_line, ft_strlen(str)))
+		if (ft_strlen1(str) != first_line)
 		{
 			free(str);
-			ft_printf("invalid map\n");
+			write(2, "invalid map \n", 14);
 			exit(0);
 		}
 		free(str);
