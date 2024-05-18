@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:04:23 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 07:32:05 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/05/13 19:36:20 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	number_move(t_data *img_data)
 {
-	int	c;
+	int		c;
+	char	*no_leaks;
 
 	c = img_data->move_c + 1;
+	no_leaks = ft_itoa(c);
 	mlx_string_put(img_data->mlx, img_data->win, img_data->w_h[0] * 0.01 * 48,
-		img_data->w_h[1] * 0.005 * 48, 0xff, ft_itoa(c));
+		img_data->w_h[1] * 0.005 * 48, 0xff, no_leaks);
+	free(no_leaks);
 }
 
 void	animate_move(t_data *img_data, int dicision, int x1, int y1)
@@ -62,7 +65,6 @@ void	animate(int keycode, int x1, int y1, t_data *img_data)
 	if (is_door(img_data, img_data->player_position[0],
 			img_data->player_position[1]))
 	{
-		write(1, "You Win !", 10);
 		free_map(img_data);
 		mlx_clear_window(img_data->mlx, img_data->win);
 		mlx_destroy_window(img_data->mlx, img_data->win);
@@ -72,6 +74,8 @@ void	animate(int keycode, int x1, int y1, t_data *img_data)
 
 void	key_next(int keycode, int x1, int y1, t_data *img_data)
 {
+	if (is_enemy(img_data, x1, y1))
+		exit_game(img_data);
 	if (!is_wall(img_data, x1, y1))
 	{
 		if (keycode == 2)
@@ -101,7 +105,6 @@ int	first_key(int keycode, t_data *img_data)
 
 	if (keycode == 13 || keycode == 1 || keycode == 2 || keycode == 0)
 	{
-		img_data->frame_counter = 1;
 		x1 = img_data->player_position[0];
 		y1 = img_data->player_position[1];
 		if (keycode == 2)

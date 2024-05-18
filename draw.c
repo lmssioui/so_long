@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 08:14:07 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 07:30:37 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/05/02 09:47:34 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	draw_elem(t_data *data, int i, int j)
 	mlx_put_image_to_window(data->mlx, data->win, data->floor, j * 48, i * 48);
 	if (data->map[i][j] == '1')
 		mlx_put_image_to_window(data->mlx, data->win, data->walls, j * 48, i
+			* 48);
+	else if (data->map[i][j] == 'N')
+		mlx_put_image_to_window(data->mlx, data->win, data->enemy, j * 48, i
 			* 48);
 	else if (data->map[i][j] == 'C')
 		mlx_put_image_to_window(data->mlx, data->win, data->collectible, j * 48,

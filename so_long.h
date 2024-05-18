@@ -6,16 +6,16 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:27:13 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/31 07:36:16 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/05/02 09:49:49 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "ft_printf/ft_printf.h"
+# include "my_ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
+# include "my_libft/libft.h"
 # include "mlx.h"
 # include <errno.h>
 # include <fcntl.h>
@@ -39,20 +39,21 @@ typedef struct s_data
 	void	*exit;
 	void	*players;
 	void	*collectible;
+	void	*enemy;
 	char	*door;
 	char	*door_open;
 	int		img_width;
 	int		img_height;
 	int		test;
-	char	*right_sprites[4];
-	char	*left_sprites[4];
-	int		move_c;
-	int		frame_counter;
+	char	*right_sprites[5];
+	char	*left_sprites[5];
+	size_t	move_c;
 	int		current_frame[2];
 	int		left_right;
 
 }			t_data;
 
+int			is_enemy(t_data *data, int x1, int y1);
 int			ver_path(char *s);
 int			count_lines(char *av);
 int			check_char(char c);

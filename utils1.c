@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:07:02 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/31 07:38:47 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:53:43 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	is_rectangle(char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
-		write(2, "Error opening file", 19);
+		write(2, "Error\nopening file failed", 25);
 		exit(1);
 	}
 	str = get_next_line(fd);
@@ -31,7 +31,7 @@ void	is_rectangle(char *av)
 		if (ft_strlen1(str) != first_line)
 		{
 			free(str);
-			write(2, "invalid map \n", 14);
+			write(2, "Error\ninvalid map", 14);
 			exit(0);
 		}
 		free(str);
@@ -49,13 +49,13 @@ void	wall_validate(t_data *data)
 	{
 		if (data->map[0][i] != '1' || data->map[data->w_h[1] - 1][i] != '1')
 		{
-			perror("Map not surrounded by walls\n");
+			write(2, "Error\nmap not surender by walls", 31);
 			exit(1);
 		}
 		if (i < data->w_h[1] && (data->map[i][data->w_h[0] - 1] != '1'
 			|| data->map[i][0] != '1'))
 		{
-			ft_printf("Map not surrounded by walls\n");
+			write(2, "Error\nmap not surender by walls", 31);
 			exit(1);
 		}
 		i++;
@@ -96,7 +96,8 @@ void	existing_wall(t_data *data)
 	wall_validate(data);
 	if (pce_validate(data) == 0)
 	{
-		ft_printf("Map must contain one P, One E and at least one C!! ");
+		write(2, "Error\nMap must contain one P, One E and at least one C!! ",
+			57);
 		exit(1);
 	}
 }

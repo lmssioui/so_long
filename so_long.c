@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:42:25 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/26 07:34:58 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/05/13 19:39:28 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	alocate_map(t_data *data)
 
 int	close_widow(t_data *data)
 {
-	write(1, "Window closed", 14);
 	free_map(data);
 	mlx_clear_window(data->mlx, data->win);
 	mlx_destroy_window(data->mlx, data->win);
@@ -45,7 +44,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_printf("Entre a valid number of argument!\n");
+		write(2, "Error\nEntre a valid number of argument!\n", 40);
 		return (1);
 	}
 	ver_path(av[1]);
@@ -59,7 +58,11 @@ int	main(int ac, char **av)
 	free_map(&data);
 	alocate_map(&data);
 	store_map(av[1], &data);
-	data.mlx = mlx_init();
+	data.mlx = mlx_init();	
+	if (data.w_h[0] > 29)
+		{
+			exit(1);
+		}
 	data.win = mlx_new_window(data.mlx, data.w_h[0] * 48, data.w_h[1] * 48,
 			"SO_LONG");
 	game_began(&data);

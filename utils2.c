@@ -6,7 +6,7 @@
 /*   By: abouyata <abouyata@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 07:42:03 by abouyata          #+#    #+#             */
-/*   Updated: 2024/03/31 07:35:53 by abouyata         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:53:26 by abouyata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	flood_fill(t_data *data, int x, int y)
 	if (data->map[x][y] == 'P' || data->map[x][y] == 'E'
 		|| data->map[x][y] == 'C' || data->map[x][y] == '0')
 	{
-		data->map[x][y] = 'V';
+		if (data->map[x][y] != 'N')
+			data->map[x][y] = 'V';
 		flood_fill(data, x + 1, y);
 		flood_fill(data, x, y + 1);
 		flood_fill(data, x - 1, y);
@@ -68,11 +69,12 @@ void	validate_path(t_data *data)
 		/ 48);
 	if (!check_map(data))
 	{
-		ft_printf("No way for the exit or all collects");
+		write(2, "Error\nNo way for the exit or all collects", 41);
 		free_map(data);
 		exit(1);
 	}
 }
+
 int	ft_strlen1(const char *s)
 {
 	int	i;

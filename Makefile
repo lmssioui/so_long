@@ -1,14 +1,14 @@
 NAME = so_long
-CC = gcc 
+CC = cc 
 CFLAGS = -Wall -Wextra -Werror -Imlx 
 SOURCE = boolean_check.c so_long.c utils.c utils1.c utils2.c \
 		 	./get_next_line/get_next_line.c \
 			./get_next_line/get_next_line_utils.c draw.c load_elem.c \
 			event_tools.c event.c \
-			./libft/ft_itoa.c ./libft/ft_strncmp.c ./libft/ft_strrchr.c \
-			./ft_printf/ft_print_hexa.c ./ft_printf/ft_print_hexa1.c ./ft_printf/ft_print_pointer.c \
-			./ft_printf/ft_print_unsg.c ./ft_printf/ft_printf.c ./ft_printf/ft_putchar.c ./ft_printf/ft_putstr.c \
-			./ft_printf/ft_putnbr.c
+			./my_libft/ft_itoa.c ./my_libft/ft_strncmp.c ./my_libft/ft_strrchr.c \
+			./my_ft_printf/ft_print_hexa.c ./my_ft_printf/ft_print_hexa1.c ./my_ft_printf/ft_print_pointer.c \
+			./my_ft_printf/ft_print_unsg.c ./my_ft_printf/ft_printf.c ./my_ft_printf/ft_putchar.c ./my_ft_printf/ft_putstr.c \
+			./my_ft_printf/ft_putnbr.c
 
 OBJ		= ${SOURCE:.c=.o}
 
@@ -18,10 +18,10 @@ all:$(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(INCLUDE) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
+	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 clean: 
-	rm -rf ${OBJ} ${BOBJ}
+	rm -rf ${OBJ}
 
 fclean: clean
 	rm -rf ${NAME}
